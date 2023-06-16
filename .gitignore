@@ -1,0 +1,37 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore compiled JavaScript files
+*.js
+
+# Ignore TypeScript declaration files
+*.d.ts
+
+# Ignore TypeScript source maps
+*.js.map
+
+# Ignore build output directory (if applicable)
+/dist/
+
+# Ignore package lock files
+package-lock.json
+yarn.lock
+
+# Ignore editor and IDE-specific files
+.vscode/
+.idea/
+*.sublime-*
+
+# Ignore environment-specific files
+.env
+.env.*
+
+# Ignore logs and debug files
+*.log
+debug.log
+
+# Ignore compiled output or build artifacts of other tools (e.g., webpack, rollup)
+/dist/
+/build/
+
+# Ignore any other files or directories specific to your SDK
