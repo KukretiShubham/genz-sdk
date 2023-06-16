@@ -4,9 +4,9 @@ import { Computes } from './resources/computes';
 
 
 export class Genz {
-  posts: Computes;
+  computes: Computes;
 
   constructor(config: { apiKey: string; baseUrl?: string }) {
-    this.posts = new Computes(config);
+    this.computes = new Computes(config);
   }
 }
