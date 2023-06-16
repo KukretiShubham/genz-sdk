@@ -1,6 +1,6 @@
 // src/resources/base.ts
 import fetch from 'isomorphic-unfetch';
-import { Param } from './posts/types';
+import { Param } from './computes/types';
 
 type Config = {
   apiKey: string;

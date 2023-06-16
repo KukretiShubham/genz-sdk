@@ -1,6 +1,6 @@
 // src/index.ts
 
-import { Computes } from './resources/posts';
+import { Computes } from './resources/computes';
 
 
 export class Genz {
