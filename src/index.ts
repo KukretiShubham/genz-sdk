@@ -1,12 +1,12 @@
 // src/index.ts
 
-import { Posts } from './resources/posts';
+import { Computes } from './resources/posts';
 
 
 export class Genz {
-  posts: Posts;
+  posts: Computes;
 
   constructor(config: { apiKey: string; baseUrl?: string }) {
-    this.posts = new Posts(config);
+    this.posts = new Computes(config);
   }
 }

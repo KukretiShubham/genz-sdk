@@ -1,23 +1,12 @@
 // src/resources/base.ts
 import fetch from 'isomorphic-unfetch';
+import { Param } from './posts/types';
 
 type Config = {
   apiKey: string;
   baseUrl?: string;
 };
 
-type NFTParams = {
-  address: string;
-  quantity: number;
-}
-type TokenParams = {
-  address: string;
-  quantity: number;
-}
-type Param = {
-  NFTPrams: NFTParams[];
-  TokenParams: TokenParams[];
-}
 
 export abstract class Base {
   private apiKey: string;
@@ -36,10 +25,26 @@ export abstract class Base {
       const NFTParams = params.NFTPrams;
       const TokenParams = params.TokenParams;
       for (let j = 0; j < NFTParams.length; j++) {
+        this.request(`/v1/eth-mainnet/address/${wallets[i]}/balances_nft/`)
+        .then((response: any) => {
+          const data = response.data.items;
+          for (let k = 0; k < data.length; k++) {
+            if(data[k].contract_address === NFTParams[j].address && data[k].balance >= NFTParams[j].quantity){
+              matchedWallets.push(wallets[i]);
+            }
+          }
+        })
       }
       for (let j = 0; j < TokenParams.length; j++) {
         this.request(`/v1/eth-mainnet/address/${wallets[i]}/balances_v2/`)
-          
+        .then((response: any) => {
+          const data = response.data.items;
+          for (let k = 0; k < data.length; k++) {
+            if(data[k].contract_address === TokenParams[j].address && data[k].balance >= TokenParams[j].quantity){
+              matchedWallets.push(wallets[i]);
+            }
+          }
+        })
       }
     }
     if(matchedWallets.length > 0){

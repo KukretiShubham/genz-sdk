@@ -1,26 +1,11 @@
 // src/resources/posts/index.ts
 
 import { Base } from '../base';
-import { NewPost, Post } from './types';
+import { Param } from './types';
 
-const resourceName = 'posts';
+export class Computes extends Base {
 
-export class Posts extends Base {
-  getPostById(id: number): Promise<Post> {
-    return this.request(`/${resourceName}/${id}`);
-  }
-  getComputedByWallets(wallets: string[], matchScore: number): Promise<string[]> {
-    return this.compute(wallets, matchScore)
-  }
-
-  getPosts(): Promise<Post[]> {
-    return this.request(`/${resourceName}`);
-  }
-
-  createPost(newPost: NewPost): Promise<Post> {
-    return this.request(`/${resourceName}`, {
-      method: 'POST',
-      body: JSON.stringify(newPost),
-    });
+  getComputedByWallets(wallets: string[], matchScore: number, params: Param): Promise<string[]> {
+    return this.compute(wallets, matchScore, params)
   }
 }

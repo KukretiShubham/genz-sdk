@@ -1,16 +1,16 @@
 
 // src/resources/posts/types.ts
 
-export declare type Post = {
-    id: number;
-    title: string;
-    body: string;
-    userId: number;
-  };
-  
-  export declare type NewPost = {
-    title: string;
-    body: string;
-    userId: number;
-  };
+export declare type NFTParams = {
+  address: string;
+  quantity: number;
+}
+export declare type TokenParams = {
+  address: string;
+  quantity: number;
+}
+export declare type Param = {
+  NFTPrams: NFTParams[];
+  TokenParams: TokenParams[];
+}
   
